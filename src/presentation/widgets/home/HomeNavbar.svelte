@@ -12,8 +12,6 @@
 
 		<!-- Logo Tuno -->
 		<div class="flex items-center gap-2">
-			<div class="text-2xl font-extrabold text-green-400 tracking-wide">Tuno</div>
-			<span class="text-[10px] text-gray-400 hidden sm:inline-block -mt-1">music.ai</span>
 		</div>
 	</div>
 
