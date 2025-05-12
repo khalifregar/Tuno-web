@@ -2,7 +2,7 @@
 	export let artist = 'White Lies'
 	export let listeners = '1.322.931'
 	export let image =
-		'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/White_Lies_2022.jpg/1200px-White_Lies_2022.jpg'
+		'assets/images/1.jpeg'
 </script>
 
 <div
