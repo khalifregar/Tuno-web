@@ -1,25 +1,33 @@
-import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from '@sveltejs/adapter-auto'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+import { fileURLToPath, URL } from 'node:url'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
 	preprocess: vitePreprocess(),
 
 	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
+
 		alias: {
-			$actions: 'src/lib/actions',
-			$components: 'src/lib/components',
-			$icons: 'src/lib/icons',
-			$stores: 'src/lib/stores',
-			$utils: 'src/lib/utils'
+			// Lib aliases
+			$actions: fileURLToPath(new URL('./src/lib/actions', import.meta.url)),
+			$components: fileURLToPath(new URL('./src/lib/components', import.meta.url)),
+			$icons: fileURLToPath(new URL('./src/lib/icons', import.meta.url)),
+			$stores: fileURLToPath(new URL('./src/lib/stores', import.meta.url)),
+			$utils: fileURLToPath(new URL('./src/lib/utils', import.meta.url)),
+
+			// DDD-style aliases
+			$presentation: fileURLToPath(new URL('./src/presentation', import.meta.url)),
+			$features: fileURLToPath(new URL('./src/features', import.meta.url)),
+			$domain: fileURLToPath(new URL('./src/domain', import.meta.url)),
+			$data: fileURLToPath(new URL('./src/data', import.meta.url)),
+			$infrastructure: fileURLToPath(new URL('./src/infrastructure', import.meta.url)),
+
+			// Global style file
+			$app.css: fileURLToPath(new URL('./src/app.css', import.meta.url))
 		}
 	}
-};
+}
 
-export default config;
+export default config
